@@ -168,7 +168,7 @@ services:
   nginx:
     container_name: nginx
     hostname: nginx
-    build: ${PWD}/config/nginx
+    build: ./config/nginx
     networks: ['stack']
     # Expose port 80 to allow users to hit content and generate data for filebeat and packetbeat
     ports: ['80:80']
@@ -181,7 +181,7 @@ services:
   apache2:
     container_name: apache2
     hostname: apache2
-    build: ${PWD}/config/apache2
+    build: ./config/apache2
     networks: ['stack']
     # Expose port 80 as port 800 to allow users to hit content and generate data for filebeat and packetbeat
     ports: ['8000:80']
@@ -193,7 +193,7 @@ services:
   mysql:
     container_name: mqsql
     hostname: mysql
-    build: ${PWD}/config/mysql
+    build: ./config/mysql
     environment:
       - "MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}"
     networks: ['stack']
