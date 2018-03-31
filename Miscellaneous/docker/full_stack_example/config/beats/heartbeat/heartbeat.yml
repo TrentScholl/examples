@@ -1,3 +1,6 @@
+setup:
+  kibana.host: "kibana:5601"
+  dashboards.enabled: true
 heartbeat.monitors:
 #Monitor all containers using an icmp ping
 - type: icmp

@@ -1,3 +1,6 @@
+setup:
+  kibana.host: "kibana:5601"
+  dashboards.enabled: true
 filebeat.registry_file: /usr/share/filebeat/data/registry
 filebeat.config.prospectors:
 #prospectors dynamically loaded from the sub-directory
@@ -7,7 +10,9 @@ filebeat.modules:
 #Filebeat system module consumes logs from host OS through a mounted volume
 - module: system
   syslog:
-    var.paths: ["/var/log/host/system.log*"]
+    var.paths: ["/var/log/host/syslog*"]
+  auth:
+    var.paths: ["/var/log/host/auth.log*"]
 #Nginx Module to consume to access and error logs from mounted volume
 - module: nginx
   access:
@@ -29,3 +34,4 @@ filebeat.modules:
 #All data to indexed to Elasticsearch
 output.elasticsearch:
   hosts: ["elasticsearch:9200"]
+logging.to_files: false

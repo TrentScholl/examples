@@ -1,3 +1,6 @@
+setup:
+  kibana.host: "kibana:5601"
+  dashboards.enabled: true
 #We monitor any devices on the host OS. For windows and OSX this is the VM hosting docker.
 packetbeat.interfaces.device: any
 packetbeat.flows:
@@ -25,5 +28,4 @@ packetbeat.protocols.mysql:
   ports: [3306]
 output.elasticsearch:
   hosts: ["localhost:9200"]
-logging.to_files: false
 logging.to_files: false

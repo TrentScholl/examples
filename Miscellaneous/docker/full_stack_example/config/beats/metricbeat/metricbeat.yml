@@ -1,3 +1,6 @@
+setup:
+  kibana.host: "kibana:5601"
+  dashboards.enabled: true
 metricbeat.config.modules:
 #Modules are enabled by reading the .modules.d sub directory. Changes to these will automatically be detected and reflected.
   path: ${path.config}/modules.d/*.yml
@@ -7,4 +10,3 @@ metricbeat.config.modules:
 output.elasticsearch:
   hosts: ["elasticsearch:9200"]
 logging.to_files: false
-
