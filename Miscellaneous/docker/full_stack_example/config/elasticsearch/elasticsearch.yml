@@ -1,4 +1,5 @@
 cluster.name: full-stack-cluster
+discovery.type: single-node
 node.name: node-1
 path.data: /usr/share/elasticsearch/data
 http.port: 9200

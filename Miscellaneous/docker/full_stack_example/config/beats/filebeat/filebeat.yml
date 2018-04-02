@@ -10,7 +10,7 @@ filebeat.modules:
 #Filebeat system module consumes logs from host OS through a mounted volume
 - module: system
   syslog:
-    var.paths: ["/var/log/host/syslog*"]
+    var.paths: ["/var/log/host/sys*log*"]
   auth:
     var.paths: ["/var/log/host/auth.log*"]
 #Nginx Module to consume to access and error logs from mounted volume

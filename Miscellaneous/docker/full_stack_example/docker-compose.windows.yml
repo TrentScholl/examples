@@ -1,0 +1,8 @@
+---
+version: "2.1"
+services:
+  # Metricbeat container
+  metricbeat:
+    volumes:
+      # We mount the host filesystem so we can report on disk usage with the system module
+      - c:/:/hostfs:ro

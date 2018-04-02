@@ -1,5 +1,5 @@
 setup:
-  kibana.host: "kibana:5601"
+  kibana.host: "localhost:5601"
   dashboards.enabled: true
 #We monitor any devices on the host OS. For windows and OSX this is the VM hosting docker.
 packetbeat.interfaces.device: any

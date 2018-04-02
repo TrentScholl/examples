@@ -1,0 +1,19 @@
+---
+version: "2.1"
+services:
+  # Filebeat container
+  filebeat:
+    volumes:
+      # Mount the docker logs for indexing by the custom prospector ./config/filebeat/prospectors.d
+      - /var/lib/docker/containers:/hostfs/var/lib/docker/containers
+      # Mount the hosts system log directory. This represents the logs of the VM hosting docker. Consumed by the filebeat system module.
+      - /var/log/:/var/log/host/:ro
+
+    # Metricbeat container
+    metricbeat:
+      volumes:
+        # The commented sections below enable Metricbeat to monitor the Docker host rather than the Metricbeat container. These are used by the system module.
+        - /proc:/hostfs/proc:ro
+        - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+        # Allows us to report on docker from the hosts information
+        - /var/run/docker.sock:/var/run/docker.sock
